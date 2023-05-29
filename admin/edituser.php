@@ -52,9 +52,7 @@ if (isset($_POST['btn-submit'])) {
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -71,14 +69,14 @@ if (isset($_POST['btn-submit'])) {
     <link href="assets/css/fonts.min.css" rel="stylesheet">
 
     <!-- Sweet Alert -->
-            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
 <body>
-<?php include 'header.php'; ?>
+    <?php include 'header.php'; ?>
 
-<?php include 'sidebar.php'; ?>
+    <?php include 'sidebar.php'; ?>
 
     <main id="main" class="main">
 
@@ -98,69 +96,69 @@ if (isset($_POST['btn-submit'])) {
             <div class="row">
 
 
-<!-- Edit User -->
-<div class="content">
-    <div class="page-inner">
-        <div class="page-header">
-        <div class="row">
-            <div class="col-md-10">
-                <div class="card">
-                    <div class="card-header">
-                        <div style="color:black"><b>Edit User</b></div>
+                <!-- Edit User -->
+                <div class="content">
+                    <div class="page-inner">
+                        <div class="page-header">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div style="color:black"><b>Edit User</b></div>
+                                        </div>
+                                        <?php while ($edit = mysqli_fetch_array($queryedit)) {
+                                        ?>
+                                            <form action="" method="POST">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label for="largeInput" class="mt-3 mb-2">Nama Pengguna</label>
+                                                        <input type="text" name="nama" class="form-control form-control" id="defaultInput" value="<?= $edit['nama']; ?>" placeholder="Nama...">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="largeInput" class="mt-2 mb-2">Username</label>
+                                                        <input type="text" name="username" class="form-control form-control" id="defaultInput" value="<?= $edit['username']; ?>" placeholder="Username...">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="largeInput" class="mt-2 mb-2">Password</label>
+                                                        <input type="text" name="password" class="form-control form-control" id="defaultInput">
+                                                        <i style="color:red; font-size:small">*Kosongkan jika tidak melakukan perubahan password</i>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="defaultSelect" class="mt-2 mb-2">Role</label>
+                                                        <select name="role" class="form-control form-control" id="defaultSelect">
+                                                            <option value="~">-- Pilih Role-- </option>
+                                                            <option value="admin">Admin</option>
+                                                            <option value="kasir">Kasir</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="card-action mt-4">
+                                                        <button type="submit" name="btn-submit" class="btn btn-success">Submit</button>
+                                                        <!-- <button class="btn btn-danger">Cancel</button> -->
+                                                        <a href="javascript:void(0)" onclick="window.history.back();" class="btn btn-danger">Batal</a>
+                                                    </div>
+                                            </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <?php while ($edit = mysqli_fetch_array($queryedit)) {
-                    ?>
-                        <form action="" method="POST">
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label for="largeInput" class="mt-3 mb-2">Nama Pengguna</label>
-                                    <input type="text" name="nama" class="form-control form-control" id="defaultInput" value="<?= $edit['nama']; ?>" placeholder="Nama...">
-                                </div>
-                                <div class="form-group">
-                                    <label for="largeInput" class="mt-2 mb-2">Username</label>
-                                    <input type="text" name="username" class="form-control form-control" id="defaultInput" value="<?= $edit['username']; ?>" placeholder="Username...">
-                                </div>
-                                <div class="form-group">
-                                    <label for="largeInput" class="mt-2 mb-2">Password</label>
-                                    <input type="text" name="password" class="form-control form-control" id="defaultInput">
-                                    <i style="color:red; font-size:small">*Kosongkan jika tidak melakukan perubahan password</i>
-                                </div>
-                                <div class="form-group">
-                                    <label for="defaultSelect" class="mt-2 mb-2">Role</label>
-                                    <select name="role" class="form-control form-control" id="defaultSelect">
-                                        <option value="~">-- Pilih Role-- </option>
-                                        <option value="admin">Admin</option>
-                                        <option value="kasir">Kasir</option>
-                                    </select>
-                                </div>
-                                <div class="card-action mt-4">
-                                    <button type="submit" name="btn-submit" class="btn btn-success">Submit</button>
-                                    <!-- <button class="btn btn-danger">Cancel</button> -->
-                                    <a href="javascript:void(0)" onclick="window.history.back();" class="btn btn-danger">Batal</a>
-                                </div>
-                        </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<?php } ?>
+                <?php } ?>
 
-    
-    <!-- Vendor JS Files -->
-    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/chart.js/chart.min.js"></script>
-    <script src="assets/vendor/echarts/echarts.min.js"></script>
-    <script src="assets/vendor/quill/quill.min.js"></script>
-    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
 
-    <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
+                <!-- Vendor JS Files -->
+                <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+                <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                <script src="assets/vendor/chart.js/chart.min.js"></script>
+                <script src="assets/vendor/echarts/echarts.min.js"></script>
+                <script src="assets/vendor/quill/quill.min.js"></script>
+                <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+                <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+                <script src="assets/vendor/php-email-form/validate.js"></script>
+
+                <!-- Template Main JS File -->
+                <script src="assets/js/main.js"></script>
 
 
 </body>
-</html>
 
+</html>

@@ -219,7 +219,7 @@
                                         </div>
                                         <div class="col-12">
                                         <label for="gbr" class="form-label">Gambar Buku</label>
-                                        <input type="file" class="form-control" id="gbr"name="gambar">
+                                        <input type="file" class="form-control" id="gbr" name="gambar">
                                         </div>
                                         <div class="col-12">
                                         <label for="hargasli" class="form-label">Harga Asli</label>
